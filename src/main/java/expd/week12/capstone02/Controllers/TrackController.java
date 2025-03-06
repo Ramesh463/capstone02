@@ -33,10 +33,7 @@ public class TrackController {
         return ResponseEntity.ok(trackService.getTrackById(id));
     }
 
-    @GetMapping("/query/{genre}")
-    public ResponseEntity<List<Track>> getTracksByGenre(@PathVariable String genre) {
-        return ResponseEntity.ok(trackService.getTracksByGenre(Genre.valueOf(genre)));
-    }
+
 
     @PostMapping
     public ResponseEntity<Track> createTrack(@Valid @RequestBody Track track) {

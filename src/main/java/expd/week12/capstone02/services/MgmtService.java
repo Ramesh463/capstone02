@@ -1,5 +1,6 @@
 package expd.week12.capstone02.services;
 
+import expd.week12.capstone02.DAO.MusicDAO;
 import expd.week12.capstone02.DAO.inMemory.ArtistDAO;
 import expd.week12.capstone02.DAO.inMemory.TrackDAO;
 import expd.week12.capstone02.Domain.Artist;
@@ -13,12 +14,12 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class MgmtService {
-    private final ArtistDAO artistDAO;
-    private final TrackDAO trackDAO;
+    private final MusicDAO<Artist> artistDAO;
+    private final MusicDAO<Track> trackDAO;
 
     public Track addArtistToTrack(Long artistID, Long trackID) throws Exception {
         Track track = trackDAO.getById(trackID);
-        Artist artist = artistDAO.getById(artistID);
+        Artist artist =artistDAO.getById(artistID);
         if (artist == null || track == null) {
             throw new Exception("Artist or track does not exist");
         }

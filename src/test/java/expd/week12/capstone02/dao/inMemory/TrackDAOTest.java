@@ -67,6 +67,14 @@ public class TrackDAOTest {
     }
 
     @Test
+    public void testGetById(){
+        Track Track = dao.getById(track1.getId());
+        assertNotNull(Track);
+        assertEquals(track1,Track);
+
+    }
+
+    @Test
     public void testUpdateTrack() {
         Track trackToUpdate = Track.builder()
                 .trackName("Ramesh1")

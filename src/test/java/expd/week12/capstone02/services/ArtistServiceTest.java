@@ -24,6 +24,7 @@ import static org.mockito.Mockito.never;
 @Tag("Unit")
 class ArtistServiceTest {
     private Artist artist1;
+    private Artist artist2;
 
     @InjectMocks
     private ArtistService artistService;
@@ -39,6 +40,13 @@ class ArtistServiceTest {
                 .country("IND")
                 .build();
         artist1.setId(1L);
+
+        artist2 = Artist.builder()
+                .artistName("")
+                .genre(Genre.valueOf("POP"))
+                .country("IND")
+                .build();
+        artist2.setId(2L);
     }
 
     @Test
@@ -58,7 +66,7 @@ class ArtistServiceTest {
     }
 
     @Test
-    public void testCreateArtist() {
+    public void testCreateArtist()  {
         Mockito.when(artistDAO.save(artist1)).thenReturn(artist1);
         Mockito.when(artistDAO.findById(1L)).thenReturn(Optional.of(artist1));
 
@@ -70,6 +78,8 @@ class ArtistServiceTest {
         Mockito.verify(artistDAO, Mockito.times(1)).save(artist1);
         Mockito.verify(artistDAO, Mockito.times(1)).findById(1L);
     }
+
+
 
     @Test
     public void testUpdateArtist() {

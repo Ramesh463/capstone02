@@ -45,9 +45,7 @@ public class TrackService {
         return trackDAO.findAll();
     }
 
-    public List<Track> getTracksByGenre(Genre genre) {
-        return trackDAO.findBy(c -> c.getGenre().equals(genre));
-    }
+
 
 
 }

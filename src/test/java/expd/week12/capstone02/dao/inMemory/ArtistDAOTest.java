@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -62,6 +63,13 @@ class ArtistDAOTest {
 
         assertTrue(artist.isPresent());
         assertEquals(artist1,artist.get());
+    }
+
+    @Test
+    public void testGetById(){
+        Artist artist = dao.getById(artist1.getId());
+        assertNotNull(artist);
+        assertEquals(artist1,artist);
     }
 
     @Test

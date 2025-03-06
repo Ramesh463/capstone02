@@ -15,9 +15,9 @@ public class ArtistService {
     public static final String INVALID_INPUT_MESSAGE = "Invalid input provided for widget operation";
 
     public Artist createArtist(Artist artist) {
-        if (artist == null || artist.getArtistName() == null || artist.getArtistName().isEmpty() || artist.getArtistName().length() > 255 || artist.getArtistName().length() < 3 ) {
-            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
-        }
+        //if (artist == null || artist.getArtistName() == null || artist.getArtistName().isEmpty() || artist.getArtistName().length() > 255 || artist.getArtistName().length() < 3 ) {
+            //throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
+       // }
         return ArtistDAO.save(artist);
     }
 
